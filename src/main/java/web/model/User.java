@@ -25,7 +25,29 @@ public class User {
         this.id = id;
     }
 
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    @Override
+    public String toString() {
+        return new StringBuilder().append(firstName).append(", ").append(lastName).toString();
+    }
+
     public Long getId() {
         return id;
     }
+
 }
