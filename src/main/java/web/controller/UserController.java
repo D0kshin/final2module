@@ -17,8 +17,12 @@ import java.util.List;
 @Controller
 public class UserController {
 
+    private final UserService userService;
+
     @Autowired
-    private UserService userService;
+    public UserController(UserService userService) {
+        this.userService = userService;
+    }
 
     @GetMapping(value = "/users")
     public String users(ModelMap model) {
@@ -55,7 +59,6 @@ public class UserController {
     @GetMapping("/delUser")
     public String delUser(ModelMap model, @RequestParam(value = "id") Long userId) {
         User user = userService.findById(userId);
-
         userService.delete(user);
         return "redirect:/users";
     }

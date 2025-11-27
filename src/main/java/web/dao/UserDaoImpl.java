@@ -17,13 +17,13 @@ public class UserDaoImpl implements UserDao{
     @PersistenceContext
     private EntityManager em;
 
-    @Transactional
+
     @Override
     public void add(User user) {
         em.persist(user);
     }
 
-    @Transactional
+
     @Override
     public void update(User user) {
         User oldUser = findById(user.getId());
@@ -31,7 +31,7 @@ public class UserDaoImpl implements UserDao{
         oldUser.setLastName(user.getLastName());
     }
 
-    @Transactional
+
     @Override
     public void delete(User user) {
         User managedUser = em.find(User.class, user.getId());
@@ -41,7 +41,7 @@ public class UserDaoImpl implements UserDao{
         em.flush();
     }
 
-    @Transactional
+
     @Override
     public List<User> findAll() {
         try {
@@ -53,7 +53,7 @@ public class UserDaoImpl implements UserDao{
         }
     }
 
-    @Transactional
+
     @Override
     public User findById(Long id) {
         return em.find(User.class, id) ;
