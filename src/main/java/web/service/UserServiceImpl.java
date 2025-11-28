@@ -13,7 +13,7 @@ public class UserServiceImpl implements UserService{
 
     private final UserDao userDao;
 
-    // Конструктор для инъекции зависимости UserDao
+
     @Autowired
     public UserServiceImpl(UserDao userDao) {
         this.userDao = userDao;
